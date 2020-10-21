@@ -74,7 +74,7 @@ var initialDisplay = function() {
 
 //QUIZ STARTS
 //display first question
-var questionsStart = function(event) {
+var questionOne = function(event) {
         //remove initial
     removeInitial();
 
@@ -118,16 +118,156 @@ var questionsStart = function(event) {
     thirdButton.addEventListener("click", wrongAnswer);
 
         //what to do if correct value is selected
-    fourthButton.addEventListener("click", correctAnswer);
+    fourthButton.addEventListener("click", questionTwo);
 };
 
-//correct Answer
-var correctAnswer = function() {
-    console.log("correct!");
+var questionTwo = function(event) {
+    removeQuestion();
+    var buttonNumber = 0;
+    //display new question
+    //make a title
+    var questionTitle = document.createElement("h2");
+    questionTitle.className = "question-title";
+    questionTitle.textContent = question2.title;
+    wrapperEl.appendChild(questionTitle);
+
+
+        //creates 4 buttons with an id of 0-3
+    for (var i = 0; i < 4; i++) {
+        var answerButton = document.createElement("button");
+        answerButton.setAttribute("id", buttonNumber);
+        buttonNumber++;
+        wrapperEl.appendChild(answerButton);
+    }
+        //fill in the buttons
+    var firstButton = document.getElementById("0");
+    firstButton.textContent = question2.firstC;
+    var seconedButton = document.getElementById("1");
+    seconedButton.textContent = question2.seconedC;
+    var thirdButton = document.getElementById("2");
+    thirdButton.textContent = question2.thirdC;
+    var fourthButton = document.getElementById("3");
+    fourthButton.textContent = question2.fourthC;
+
+        //assign incorrect and correct values
+    //correct
+    thirdButton.className = "enter-button correct";
+
+    //incorrect
+    firstButton.className = "enter-button incorrect";
+    seconedButton.className = "enter-button incorrect";
+    fourthButton.className = "enter-button incorrect";
+
+        //what to do if incorrect value is selected
+    
+    firstButton.addEventListener("click", wrongAnswer);
+    seconedButton.addEventListener("click", wrongAnswer);
+    fourthButton.addEventListener("click", wrongAnswer);
+
+        //what to do if correct value is selected
+    thirdButton.addEventListener("click", questionThree);
+};
+
+var questionThree = function(event) {
+    removeQuestion();
+    var buttonNumber = 0;
+    //display new question
+    //make a title
+    var questionTitle = document.createElement("h2");
+    questionTitle.className = "question-title";
+    questionTitle.textContent = question3.title;
+    wrapperEl.appendChild(questionTitle);
+
+
+        //creates 4 buttons with an id of 0-3
+    for (var i = 0; i < 4; i++) {
+        var answerButton = document.createElement("button");
+        answerButton.setAttribute("id", buttonNumber);
+        buttonNumber++;
+        wrapperEl.appendChild(answerButton);
+    }
+        //fill in the buttons
+    var firstButton = document.getElementById("0");
+    firstButton.textContent = question3.firstC;
+    var seconedButton = document.getElementById("1");
+    seconedButton.textContent = question3.seconedC;
+    var thirdButton = document.getElementById("2");
+    thirdButton.textContent = question3.thirdC;
+    var fourthButton = document.getElementById("3");
+    fourthButton.textContent = question3.fourthC;
+
+        //assign incorrect and correct values
+    //correct
+    fourthButton.className = "enter-button correct";
+
+    //incorrect
+    firstButton.className = "enter-button incorrect";
+    thirdButton.className = "enter-button incorrect";
+    seconedButton.className = "enter-button incorrect";
+
+        //what to do if incorrect value is selected
+    
+    firstButton.addEventListener("click", wrongAnswer);
+    thirdButton.addEventListener("click", wrongAnswer);
+    seconedButton.addEventListener("click", wrongAnswer);
+
+        //what to do if correct value is selected
+    fourthButton.addEventListener("click", questionFour);
+};
+
+var questionFour = function(event) {
+    removeQuestion();
+    var buttonNumber = 0;
+    //display new question
+    //make a title
+    var questionTitle = document.createElement("h2");
+    questionTitle.className = "question-title";
+    questionTitle.textContent = question4.title;
+    wrapperEl.appendChild(questionTitle);
+
+
+        //creates 4 buttons with an id of 0-3
+    for (var i = 0; i < 4; i++) {
+        var answerButton = document.createElement("button");
+        answerButton.setAttribute("id", buttonNumber);
+        buttonNumber++;
+        wrapperEl.appendChild(answerButton);
+    }
+        //fill in the buttons
+    var firstButton = document.getElementById("0");
+    firstButton.textContent = question4.firstC;
+    var seconedButton = document.getElementById("1");
+    seconedButton.textContent = question4.seconedC;
+    var thirdButton = document.getElementById("2");
+    thirdButton.textContent = question4.thirdC;
+    var fourthButton = document.getElementById("3");
+    fourthButton.textContent = question4.fourthC;
+
+        //assign incorrect and correct values
+    //correct
+    firstButton.className = "enter-button correct";
+
+    //incorrect
+    seconedButton.className = "enter-button incorrect";
+    thirdButton.className = "enter-button incorrect";
+    fourthButton.className = "enter-button incorrect";
+
+        //what to do if incorrect value is selected
+    
+    seconedButton.addEventListener("click", wrongAnswer);
+    thirdButton.addEventListener("click", wrongAnswer);
+    fourthButton.addEventListener("click", wrongAnswer);
+
+        //what to do if correct value is selected
+    firstButton.addEventListener("click", endScreen);
 };
 //incorrect Answer
  var wrongAnswer = function() {
      console.log("incorrect!");
+ };
+
+ var endScreen = function(event) {
+    console.log("noice!");
  };
 
 //removes initial display
@@ -140,7 +280,21 @@ var removeInitial = function() {
     initialbtn.remove();
 };
 
+//removes question
+var removeQuestion = function() {
+    var button1 = document.getElementById("0");
+    var button2 = document.getElementById("1");
+    var button3 = document.getElementById("2");
+    var button4 = document.getElementById("3");
+    var title = document.querySelector(".question-title");
+    button1.remove();
+    button2.remove();
+    button3.remove();
+    button4.remove();
+    title.remove();
+};
+
 
 initialDisplay();
 //events
-startButton.addEventListener("click", questionsStart);
+startButton.addEventListener("click", questionOne);
