@@ -75,24 +75,34 @@ var initialDisplay = function() {
 //QUIZ STARTS
 //display first question
 var questionsStart = function(event) {
-    //remove initial
-removeInitial();
+        //remove initial
+    removeInitial();
 
-    //make a title
-var questionTitle = document.createElement("h2");
-debugger;
+        //make a title
+    var questionTitle = document.createElement("h2");
+    questionTitle.className = "question-title";
+    questionTitle.textContent = question1.title;
+    wrapperEl.appendChild(questionTitle);
 
 
-//creates 4 buttons with an id of 0-3
-for (var i = 0; i < 4; i++) {
-    var answerButton = document.createElement("button");
-    answerButton.className = "button";
-    answerButton.setAttribute("id", buttonNumber);
-    buttonNumber++;
-    wrapperEl.appendChild(answerButton);
+        //creates 4 buttons with an id of 0-3
+    for (var i = 0; i < 4; i++) {
+        var answerButton = document.createElement("button");
+        answerButton.className = "enter-button";
+        answerButton.setAttribute("id", buttonNumber);
+        buttonNumber++;
+        wrapperEl.appendChild(answerButton);
+    }
+    //fill in the buttons
+    var first = document.getElementById("0");
+    first.textContent = question1.firstC;
+    var first = document.getElementById("1");
+    first.textContent = question1.seconedC;
+    var first = document.getElementById("2");
+    first.textContent = question1.thirdC;
+    var first = document.getElementById("3");
+    first.textContent = question1.fourthC;
 }
-
-};
  
 //removes initial display
 var removeInitial = function() {

@@ -15,26 +15,14 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 10em, auto;
+    margin: 0 auto;
     background-color: aliceblue;
-    padding: 4em;
+    padding: 3em;
 }
 
 /* Question Titles */
 .question-title {
     font-size: 3em;
-}
-
-/* Questions */
-.questions {
-    list-style: none;
-    padding-bottom: 0.5em;
-    text-decoration: none;
-}
-
-.questions-ul {
-    list-style: none;
-    text-decoration: none;
 }
 
 /* Buttons */
@@ -50,8 +38,10 @@ body {
 }
 
 .enter-button {
-    width: 0.5em;
-    height: 0.5em;
+    width: 20em;
+    height: 3em;
+    margin: 0.5em;
+    font-size: 2em;
 }
 
 /* opening display */
