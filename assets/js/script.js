@@ -3,6 +3,25 @@ var startButton = document.querySelector("#start");
 var buttonNumber = 0;
 var headerSection = document.querySelector("#header-section");
 
+//clock
+var clock = document.querySelector("#clock");
+    clock.textContent = "60";
+
+    //turn string into a number.
+    var countDown = parseInt(clock.textContent);
+
+    //subtracts one from clock.textcontent every seconed
+    countDownMethod;
+    var countDownMethod = setInterval(function() {
+        if (countDown > 0) {
+            countDown--;
+            clock.textContent = countDown;
+        }
+    },1000);
+
+    //append clock
+    headerSection.appendChild(clock);
+
 
 //Question variables
 var question1 = {
@@ -77,7 +96,7 @@ var initialDisplay = function() {
 //display first question
 var questionOne = function(event) {
         //remove initial
-    clockHandler();
+    //clockHandler();
     removeInitial();
 
         //make a title
@@ -266,6 +285,10 @@ var questionFour = function(event) {
 //incorrect Answer
  var wrongAnswer = function() {
      console.log("incorrect!");
+     //subtract 5 from clock.textContent
+     var clockRel = countDown;
+     var clockPenalty = clockRel - 5;
+     countDown = clockPenalty;
  };
 
  var endScreen = function(event) {
