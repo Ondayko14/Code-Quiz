@@ -88,22 +88,48 @@ var questionsStart = function(event) {
         //creates 4 buttons with an id of 0-3
     for (var i = 0; i < 4; i++) {
         var answerButton = document.createElement("button");
-        answerButton.className = "enter-button";
         answerButton.setAttribute("id", buttonNumber);
         buttonNumber++;
         wrapperEl.appendChild(answerButton);
     }
-    //fill in the buttons
-    var first = document.getElementById("0");
-    first.textContent = question1.firstC;
-    var first = document.getElementById("1");
-    first.textContent = question1.seconedC;
-    var first = document.getElementById("2");
-    first.textContent = question1.thirdC;
-    var first = document.getElementById("3");
-    first.textContent = question1.fourthC;
-}
- 
+        //fill in the buttons
+    var firstButton = document.getElementById("0");
+    firstButton.textContent = question1.firstC;
+    var seconedButton = document.getElementById("1");
+    seconedButton.textContent = question1.seconedC;
+    var thirdButton = document.getElementById("2");
+    thirdButton.textContent = question1.thirdC;
+    var fourthButton = document.getElementById("3");
+    fourthButton.textContent = question1.fourthC;
+
+        //assign incorrect and correct values
+    //correct
+    fourthButton.className = "enter-button correct";
+
+    //incorrect
+    firstButton.className = "enter-button incorrect";
+    seconedButton.className = "enter-button incorrect";
+    thirdButton.className = "enter-button incorrect";
+
+        //what to do if incorrect value is selected
+    
+    firstButton.addEventListener("click", wrongAnswer);
+    seconedButton.addEventListener("click", wrongAnswer);
+    thirdButton.addEventListener("click", wrongAnswer);
+
+        //what to do if correct value is selected
+    fourthButton.addEventListener("click", correctAnswer);
+};
+
+//correct Answer
+var correctAnswer = function() {
+    console.log("correct!");
+};
+//incorrect Answer
+ var wrongAnswer = function() {
+     console.log("incorrect!");
+ };
+
 //removes initial display
 var removeInitial = function() {
     var initialh1 = document.querySelector(".opening-h1");
