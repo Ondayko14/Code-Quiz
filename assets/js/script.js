@@ -1,6 +1,7 @@
 var wrapperEl = document.querySelector("#questions-section");
 var startButton = document.querySelector("#start");
 var buttonNumber = 0;
+var headerSection = document.querySelector("#header-section");
 
 
 //Question variables
@@ -294,7 +295,29 @@ var removeQuestion = function() {
     title.remove();
 };
 
+//CLOCK
+var clockHandler = function() {
+    //create an h1 in the header with value of 60
+    var clock = document.createElement("h1");
+    clock.textContent = "60";
 
+    //turn string into a number.
+    var countDown = parseInt(clock.textContent);
+
+    //subtracts one from clock.textcontent every seconed
+    countDownMethod;
+    var countDownMethod = setInterval(function() {
+        if (countDown > 0) {
+            countDown--;
+            clock.textContent = countDown;
+        }
+    },1000);
+
+    //append clock
+    headerSection.appendChild(clock);
+}
+
+clockHandler();
 initialDisplay();
 //events
 startButton.addEventListener("click", questionOne);
