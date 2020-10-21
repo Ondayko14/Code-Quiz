@@ -1,5 +1,6 @@
 var wrapperEl = document.querySelector("#questions-section");
 
+
 //Question variables
 var question1 = {
     title: "What is a variable?",
@@ -40,4 +41,36 @@ var question5 = {
     thirdC: "Cats?",
     fourthC: "Cats?",
 };
+//initial display variable
+var initial = {
+    title: "Code Quiz",
+    description: "Try to answer the questions the best that you can! Press START when you are ready!",
+    button: "START"
+}
 
+//initial display
+var initialDisplay = function() {
+    //h1
+    var initialTitle = document.createElement("h1");
+    initialTitle.className = "opening-h1";
+    initialTitle.textContent = initial.title;
+    wrapperEl.appendChild(initialTitle);
+
+    //paragraph
+    var initialP = document.createElement("p");
+    initialP.className = "opening-p";
+    initialP.textContent = initial.description;
+    wrapperEl.appendChild(initialP);
+
+    //start button
+    var initialStart = document.createElement("button");
+    initialStart.className = "start-button";
+    initialStart.textContent = initial.button;
+    wrapperEl.appendChild(initialStart);
+};
+
+var displayQuestion = function() {
+
+};
+
+initialDisplay();
