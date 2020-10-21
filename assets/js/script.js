@@ -1,4 +1,5 @@
 var wrapperEl = document.querySelector("#questions-section");
+var startButton = document.querySelector("#start");
 
 
 //Question variables
@@ -63,10 +64,11 @@ var initialDisplay = function() {
     wrapperEl.appendChild(initialP);
 
     //start button
-    var initialStart = document.createElement("button");
-    initialStart.className = "start-button";
-    initialStart.textContent = initial.button;
-    wrapperEl.appendChild(initialStart);
+    startButton.className = "start-button";
+    startButton.textContent = initial.button;
+
+    //adjust start button to bottom
+    startButton.setAttribute("style", "order: 3;");
 };
 
 //questions start
@@ -82,4 +84,4 @@ var removeInitial = function() {
 
 initialDisplay();
 //events
-wrapperEl.addEventListener("click", removeInitial);
+startButton.addEventListener("click", removeInitial);
