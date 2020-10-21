@@ -69,8 +69,17 @@ var initialDisplay = function() {
     wrapperEl.appendChild(initialStart);
 };
 
-var displayQuestion = function() {
-
+//questions start
+var removeInitial = function() {
+    var initialh1 = document.querySelector(".opening-h1");
+    var initialp = document.querySelector(".opening-p");
+    var initialbtn = document.querySelector(".start-button");
+    initialh1.remove();
+    initialp.remove();
+    initialbtn.remove();
 };
 
+
 initialDisplay();
+//events
+wrapperEl.addEventListener("click", removeInitial);
