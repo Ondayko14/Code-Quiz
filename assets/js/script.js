@@ -1,5 +1,6 @@
 var wrapperEl = document.querySelector("#questions-section");
 var startButton = document.querySelector("#start");
+var buttonNumber = 0;
 
 
 //Question variables
@@ -71,7 +72,29 @@ var initialDisplay = function() {
     startButton.setAttribute("style", "order: 3;");
 };
 
-//questions start
+//QUIZ STARTS
+//display first question
+var questionsStart = function(event) {
+    //remove initial
+removeInitial();
+
+    //make a title
+var questionTitle = document.createElement("h2");
+debugger;
+
+
+//creates 4 buttons with an id of 0-3
+for (var i = 0; i < 4; i++) {
+    var answerButton = document.createElement("button");
+    answerButton.className = "button";
+    answerButton.setAttribute("id", buttonNumber);
+    buttonNumber++;
+    wrapperEl.appendChild(answerButton);
+}
+
+};
+ 
+//removes initial display
 var removeInitial = function() {
     var initialh1 = document.querySelector(".opening-h1");
     var initialp = document.querySelector(".opening-p");
@@ -84,4 +107,4 @@ var removeInitial = function() {
 
 initialDisplay();
 //events
-startButton.addEventListener("click", removeInitial);
+startButton.addEventListener("click", questionsStart);
