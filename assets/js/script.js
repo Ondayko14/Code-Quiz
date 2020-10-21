@@ -77,6 +77,7 @@ var initialDisplay = function() {
 //display first question
 var questionOne = function(event) {
         //remove initial
+    clockHandler();
     removeInitial();
 
         //make a title
@@ -317,7 +318,6 @@ var clockHandler = function() {
     headerSection.appendChild(clock);
 }
 
-clockHandler();
 initialDisplay();
 //events
 startButton.addEventListener("click", questionOne);
