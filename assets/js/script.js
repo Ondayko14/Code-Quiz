@@ -333,6 +333,7 @@ var clockHandler = function() {
             clock.textContent = countDown;
         } else {
             endScreen();
+            clearInterval(countDownMethod);
         }
     },1000);
 
