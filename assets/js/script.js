@@ -2,25 +2,8 @@ var wrapperEl = document.querySelector("#questions-section");
 var startButton = document.querySelector("#start");
 var buttonNumber = 0;
 var headerSection = document.querySelector("#header-section");
-
-//clock
 var clock = document.querySelector("#clock");
-    clock.textContent = "60";
-
-    //turn string into a number.
-    var countDown = parseInt(clock.textContent);
-
-    //subtracts one from clock.textcontent every seconed
-    countDownMethod;
-    var countDownMethod = setInterval(function() {
-        if (countDown > 0) {
-            countDown--;
-            clock.textContent = countDown;
-        }
-    },1000);
-
-    //append clock
-    headerSection.appendChild(clock);
+var countDown = parseInt(clock.textContent);
 
 
 //Question variables
@@ -95,8 +78,9 @@ var initialDisplay = function() {
 //QUIZ STARTS
 //display first question
 var questionOne = function(event) {
+        //call clock
+    clockHandler();
         //remove initial
-    //clockHandler();
     removeInitial();
 
         //make a title
@@ -285,10 +269,8 @@ var questionFour = function(event) {
 //incorrect Answer
  var wrongAnswer = function() {
      console.log("incorrect!");
-     //subtract 5 from clock.textContent
-     var clockRel = countDown;
-     var clockPenalty = clockRel - 5;
-     countDown = clockPenalty;
+     //remove 5 secs from clock.textContent
+    countDown -= 5;
  };
 
  var endScreen = function(event) {
@@ -321,12 +303,9 @@ var removeQuestion = function() {
 
 //CLOCK
 var clockHandler = function() {
-    //create an h1 in the header with value of 60
-    var clock = document.createElement("h1");
-    clock.textContent = "60";
-
     //turn string into a number.
-    var countDown = parseInt(clock.textContent);
+    //var countDown = parseInt(clock.textContent);
+    //move countdown var to global
 
     //subtracts one from clock.textcontent every seconed
     countDownMethod;
