@@ -23,6 +23,7 @@ body {
 /* Question Titles */
 .question-title {
     font-size: 3em;
+    text-align: center;
 }
 
 /* Buttons */
@@ -54,6 +55,7 @@ body {
 /* opening display */
 .opening-p {
     font-size: 2em;
+    text-align: center;
 }
 
 .opening-h1 {
@@ -101,3 +103,11 @@ body {
     font-size: 2.3em;
 }
 
+/* Media Queries */
+
+@media only screen and (max-width: 670px) {
+    .enter-button {
+        width: 10em;
+        padding: 0.5em;
+    }
+}
