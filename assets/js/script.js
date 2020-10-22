@@ -297,6 +297,8 @@ var questionFour = function(event) {
         highScore.score--;
     }
     console.log(highScore.score);
+    var textFinder = document.querySelector(".question-title");
+    textFinder.textContent = "Incorrect! Try Again!";
  };
 
 //removes initial display
