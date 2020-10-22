@@ -412,6 +412,11 @@ var endScreen = function(event) {
     highScore.playerName = playerNameInput;
     console.log(highScore.playerName);
 
+        //logs the score and name
+    localStorage.setItem("score", highScore.score);
+    localStorage.setItem("playerName", highScore.playerName);
+    debugger;
+
     //restart the game
     restart();
     }
