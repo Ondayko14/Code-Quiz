@@ -58,6 +58,7 @@ body {
 
 .opening-h1 {
     font-size: 3em;
+    text-align: center;
 }
 
 /* endScreen */
@@ -80,11 +81,13 @@ body {
     height: auto;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .score-title {
     font-size: 2.5em;
     text-decoration: underline;
+    text-align: center;
 }
 
 .score-box-ol {

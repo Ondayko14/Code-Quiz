@@ -373,7 +373,7 @@ var endScreen = function(event) {
     var endTitle = document.createElement("h1");
     endTitle.className = "opening-h1";
     endTitle.setAttribute("id", "end-title");
-    endTitle.textContent = "Congratualtions!";
+    endTitle.textContent = "Congratulations! Insert a name to see if you beat the high score!";
 
     //p your score is
     var endDescription = document.createElement("p");
@@ -415,32 +415,45 @@ var endScreen = function(event) {
     console.log(highScore.playerName);
 
     var checkScore = localStorage.getItem("score");
+    var checkScoreNum = parseInt(checkScore);
 
-        if (checkScore < highScore.score) {
+        if (checkScoreNum < highScore.score) {
 
             //logs the score and name if score is higher
         localStorage.setItem("score", highScore.score);
         localStorage.setItem("playerName", highScore.playerName);
 
             //sets message prompt for new high score!
-            newHighScore = 1;
+            var message = document.querySelector("#end-title")
+            message.textContent = "You set a new high score!"
 
         showScores();
+        debugger;
         //restart();
-        } else if (checkScore === highScore.score) {
+        } else if (checkScoreNum === highScore.score) {
             //logs the score and name if score is higher
         localStorage.setItem("score", highScore.score);
         localStorage.setItem("playerName", highScore.playerName);
 
             //sets message prompt for tied your high score!
-            newHighScore = 2;
+            var message = document.querySelector("#end-title")
+            message.textContent = "You tied your high score!"
 
         showScores();
-        } else if (checkScore > highScore.score) {
+        } else if (checkScoreNum > highScore.score) {
             //sets message prompt for tied your did not set a high score.
-            newHighScore = 3;
             var message = document.querySelector("#end-title")
             message.textContent = "You did not set a high score, try again!"
+
+        showScores();
+        } else {
+            //logs the score and name if score is higher
+            localStorage.setItem("score", highScore.score);
+            localStorage.setItem("playerName", highScore.playerName);
+            
+            //sets message prompt for new guy.
+            var message = document.querySelector("#end-title")
+            message.textContent = "Looks like you're the first one here!"
 
         showScores();
         }
