@@ -8,8 +8,10 @@ var clock = document.querySelector("#clock");
 var countDown = parseInt(clock.textContent);
 
 //score
-var score = 0;
-var playerName = "";
+var highScore = {
+    score: 0,
+    playerName: ""
+};
 
 
 //Question variables
@@ -85,8 +87,8 @@ var initialDisplay = function() {
 //display first question
 var questionOne = function(event) {
         //add one to score for inevitable correct answer
-        score++;
-        console.log(score);
+        highScore.score++;
+        console.log(highScore.score);
         //call clock
     clockHandler();
         //remove initial
@@ -137,8 +139,8 @@ var questionOne = function(event) {
 
 var questionTwo = function(event) {
     //add one to score for inevitable correct answer
-    score++;
-    console.log(score);
+    highScore.score++;
+    console.log(highScore.score);
     removeQuestion();
     var buttonNumber = 0;
     //display new question
@@ -187,8 +189,8 @@ var questionTwo = function(event) {
 
 var questionThree = function(event) {
     //add one to score for inevitable correct answer
-    score++;
-    console.log(score);
+    highScore.score++;
+    console.log(highScore.score);
     removeQuestion();
     var buttonNumber = 0;
     //display new question
@@ -237,8 +239,8 @@ var questionThree = function(event) {
 
 var questionFour = function(event) {
     //add one to score for inevitable correct answer
-    score++;
-    console.log(score);
+    highScore.score++;
+    console.log(highScore.score);
     removeQuestion();
     var buttonNumber = 0;
     //display new question
@@ -289,10 +291,10 @@ var questionFour = function(event) {
      console.log("incorrect!");
      //remove 5 secs from clock.textContent
     countDown -= 5;
-    if (score > 0) {
-        score--;
+    if (highScore.score > 0) {
+        highScore.score--;
     }
-    console.log(score);
+    console.log(highScore.score);
  };
 
 //removes initial display
@@ -375,7 +377,7 @@ var endScreen = function(event) {
     var endDescription = document.createElement("p");
     endDescription.className = "opening-p";
     endDescription.setAttribute("id", "end-description")
-    endDescription.textContent = "Your score is " + score + ".";
+    endDescription.textContent = "Your score is " + highScore.score + ".";
     
     //text input
     var endInput = document.createElement("input");
@@ -404,11 +406,11 @@ var endScreen = function(event) {
     var playerNameInput = document.getElementById("endInputValue").value;
     if (!playerNameInput) {
         window.alert("Please insert a name!");
-        return playerName = "ANON";
+        return highScore.playerName = "ANON";
     } else {
         //inserts name into playerName
-    playerName = playerNameInput;
-    console.log(playerName);
+    highScore.playerName = playerNameInput;
+    console.log(highScore.playerName);
 
     //restart the game
     restart();
