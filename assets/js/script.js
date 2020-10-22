@@ -313,6 +313,8 @@ var clockHandler = function() {
         if (countDown > 0) {
             countDown--;
             clock.textContent = countDown;
+        } else {
+            endScreen();
         }
     },1000);
 
