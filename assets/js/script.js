@@ -302,7 +302,7 @@ var removeInitial = function() {
     var initialbtn = document.querySelector(".start-button");
     initialh1.remove();
     initialp.remove();
-    initialbtn.remove();
+    initialbtn.style.display = "none";
 };
 
 //removes question
@@ -317,6 +317,19 @@ var removeQuestion = function() {
     button3.remove();
     button4.remove();
     title.remove();
+};
+
+//removes end screen
+var removeEndScreen = function() {
+    var endTitleRm = document.getElementById("end-title");
+    var endDescriptionRM = document.getElementById("end-description");
+    var endInputInfoRM = document.getElementById("endInputValue");
+    var submitButtonRM = document.getElementById("submitInput");
+
+    endTitleRm.remove();
+    endDescriptionRM.remove();
+    endInputInfoRM.remove();
+    submitButtonRM.remove();
 };
 
 //CLOCK
@@ -339,11 +352,11 @@ var clockHandler = function() {
 
     //append clock
     headerSection.appendChild(clock);
-}
+};
 
 var stopClock = function() {
     clock.style.display = "none";
-}
+};
 
 //END SCREEN
 var endScreen = function(event) {
@@ -355,11 +368,13 @@ var endScreen = function(event) {
     //h1 title
     var endTitle = document.createElement("h1");
     endTitle.className = "opening-h1";
+    endTitle.setAttribute("id", "end-title");
     endTitle.textContent = "Congratualtions!";
 
     //p your score is
     var endDescription = document.createElement("p");
     endDescription.className = "opening-p";
+    endDescription.setAttribute("id", "end-description")
     endDescription.textContent = "Your score is " + score + ".";
     
     //text input
@@ -401,7 +416,8 @@ var endScreen = function(event) {
  };
 
  var restart = function() {
-    console.log("restart");
+    //remove endScreen
+    document.location.reload ();
  };
 initialDisplay();
 //events
