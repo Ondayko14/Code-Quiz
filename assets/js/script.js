@@ -340,9 +340,16 @@ var clockHandler = function() {
     headerSection.appendChild(clock);
 }
 
+var stopClock = function() {
+    clock.style.display = "none";
+}
+
 //END SCREEN
 var endScreen = function(event) {
     removeQuestion();
+    //stop clock
+    stopClock();
+
     console.log("noice!");
     //h1 title
     var endTitle = document.createElement("h1");
@@ -382,10 +389,18 @@ var endScreen = function(event) {
     if (!playerNameInput) {
         window.alert("Please insert a name!");
         return playerName = "ANON";
-    }
-    //inserts name into playerName
+    } else {
+        //inserts name into playerName
     playerName = playerNameInput;
     console.log(playerName);
+
+    //restart the game
+    restart();
+    }
+ };
+
+ var restart = function() {
+    console.log("restart");
  };
 initialDisplay();
 //events
