@@ -65,4 +65,35 @@ body {
     font-size: 1.5em;
 }
 
-/* divs */
+.score-box {
+    width: 20em;
+    height: auto;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.high-score-wrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.score-title {
+    font-size: 2.5em;
+    text-decoration: underline;
+}
+
+.score-box-ol {
+    text-decoration: none;
+    align-self: start;
+}
+
+.score-li {
+    text-decoration: none;
+    list-style: none;
+    font-size: 1.5em;
+}

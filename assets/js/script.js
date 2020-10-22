@@ -2,6 +2,7 @@ var wrapperEl = document.querySelector("#questions-section");
 var startButton = document.querySelector("#start");
 var buttonNumber = 0;
 var headerSection = document.querySelector("#header-section");
+var highScoreWrapper = document.querySelector("#high-score-section");
 
 //clock
 var clock = document.querySelector("#clock");
@@ -12,6 +13,7 @@ var highScore = {
     score: 0,
     playerName: ""
 };
+newHighScore = 0;
 
 
 //Question variables
@@ -412,14 +414,69 @@ var endScreen = function(event) {
     highScore.playerName = playerNameInput;
     console.log(highScore.playerName);
 
-        //logs the score and name
-    localStorage.setItem("score", highScore.score);
-    localStorage.setItem("playerName", highScore.playerName);
-    debugger;
+    var checkScore = localStorage.getItem("score");
 
-    //restart the game
-    restart();
+        if (checkScore < highScore.score) {
+
+            //logs the score and name if score is higher
+        localStorage.setItem("score", highScore.score);
+        localStorage.setItem("playerName", highScore.playerName);
+
+            //sets message prompt for new high score!
+            newHighScore = 1;
+
+        showScores();
+        //restart();
+        } else if (checkScore === highScore.score) {
+            //logs the score and name if score is higher
+        localStorage.setItem("score", highScore.score);
+        localStorage.setItem("playerName", highScore.playerName);
+
+            //sets message prompt for tied your high score!
+            newHighScore = 2;
+
+        showScores();
+        } else if (checkScore > highScore.score) {
+            //sets message prompt for tied your did not set a high score.
+            newHighScore = 3;
+            var message = document.querySelector("#end-title")
+            message.textContent = "You did not set a high score, try again!"
+
+        showScores();
+        }
     }
+ };
+
+ var showScores = function() {
+
+     //div
+    var scoreBox = document.createElement("div");
+    scoreBox.className = "score-box";
+    scoreBox.setAttribute ("id", "score-box-div");
+
+    //h2
+    scoreBoxTitle = document.createElement("h2");
+    scoreBoxTitle.className = "score-title";
+    scoreBoxTitle.textContent = "High Score:"
+
+    //ol
+    scoreBoxOl = document.createElement("ol");
+    scoreBoxOl.className = "score-box-ol";
+
+    //li
+    scoreBoxLi = document.createElement("li");
+    scoreBoxLi.className = "score-li";
+
+    //retrieve the scores
+    var highScoreName = localStorage.getItem("playerName");
+    var highScoreScore = localStorage.getItem("score");
+    scoreBoxLi.textContent =  highScoreName + " " + highScoreScore + "."
+
+    //appends
+    highScoreWrapper.appendChild(scoreBox);
+    scoreBox.appendChild(scoreBoxTitle);
+    scoreBox.appendChild(scoreBoxOl);
+    scoreBoxOl.appendChild(scoreBoxLi);
  };
 
  var restart = function() {
