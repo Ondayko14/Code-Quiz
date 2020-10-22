@@ -2,8 +2,13 @@ var wrapperEl = document.querySelector("#questions-section");
 var startButton = document.querySelector("#start");
 var buttonNumber = 0;
 var headerSection = document.querySelector("#header-section");
+
+//clock
 var clock = document.querySelector("#clock");
 var countDown = parseInt(clock.textContent);
+
+//score
+var score = 0;
 
 
 //Question variables
@@ -78,6 +83,9 @@ var initialDisplay = function() {
 //QUIZ STARTS
 //display first question
 var questionOne = function(event) {
+        //add one to score for inevitable correct answer
+        score++;
+        console.log(score);
         //call clock
     clockHandler();
         //remove initial
@@ -127,6 +135,9 @@ var questionOne = function(event) {
 };
 
 var questionTwo = function(event) {
+    //add one to score for inevitable correct answer
+    score++;
+    console.log(score);
     removeQuestion();
     var buttonNumber = 0;
     //display new question
@@ -174,6 +185,9 @@ var questionTwo = function(event) {
 };
 
 var questionThree = function(event) {
+    //add one to score for inevitable correct answer
+    score++;
+    console.log(score);
     removeQuestion();
     var buttonNumber = 0;
     //display new question
@@ -221,6 +235,9 @@ var questionThree = function(event) {
 };
 
 var questionFour = function(event) {
+    //add one to score for inevitable correct answer
+    score++;
+    console.log(score);
     removeQuestion();
     var buttonNumber = 0;
     //display new question
@@ -271,6 +288,10 @@ var questionFour = function(event) {
      console.log("incorrect!");
      //remove 5 secs from clock.textContent
     countDown -= 5;
+    if (score > 0) {
+        score--;
+    }
+    console.log(score);
  };
 
  var endScreen = function(event) {
