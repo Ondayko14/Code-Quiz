@@ -9,7 +9,7 @@ var countDown = parseInt(clock.textContent);
 
 //score
 var score = 0;
-var playerName = ""
+var playerName = "";
 
 
 //Question variables
@@ -357,21 +357,35 @@ var endScreen = function(event) {
     //text input
     var endInput = document.createElement("input");
     endInput.setAttribute ("placeholder", "Enter Name Here!");
+    endInput.setAttribute ("id", "endInputValue")
     endInput.className = "end-input";
 
     //submit button
     var submitButton = document.createElement("button");
+    submitButton.setAttribute("id", "submitInput")
     submitButton.className = "submit-button";
     submitButton.textContent = "Submit";
 
-
+    //event listener to hear when button is clicked
+    submitButton.addEventListener("click", endInputInfo);
 
     //appends
     wrapperEl.appendChild(endTitle);
     wrapperEl.appendChild(endDescription);
     wrapperEl.appendChild(endInput);
     wrapperEl.appendChild(submitButton);
+ };
 
+ var endInputInfo = function() {
+     //retrieves info from the input
+    var playerNameInput = document.getElementById("endInputValue").value;
+    if (!playerNameInput) {
+        window.alert("Please insert a name!");
+        return playerName = "ANON";
+    }
+    //inserts name into playerName
+    playerName = playerNameInput;
+    console.log(playerName);
  };
 initialDisplay();
 //events
