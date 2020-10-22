@@ -85,7 +85,7 @@ body {
 }
 
 .score-title {
-    font-size: 2.5em;
+    font-size: 2.75em;
     text-decoration: underline;
     text-align: center;
 }
@@ -98,5 +98,6 @@ body {
 .score-li {
     text-decoration: none;
     list-style: none;
-    font-size: 1.5em;
+    font-size: 2.3em;
 }
+

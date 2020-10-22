@@ -485,11 +485,19 @@ var endScreen = function(event) {
     var highScoreScore = localStorage.getItem("score");
     scoreBoxLi.textContent =  highScoreName + " " + highScoreScore + "."
 
+    //make restart button
+    var restartButton = document.querySelector("#submitInput");
+    restartButton.textContent = "Try Again!";
+
     //appends
     highScoreWrapper.appendChild(scoreBox);
     scoreBox.appendChild(scoreBoxTitle);
     scoreBox.appendChild(scoreBoxOl);
     scoreBoxOl.appendChild(scoreBoxLi);
+
+    //restart button
+
+    restartButton.addEventListener("click", restart);
  };
 
  var restart = function() {
