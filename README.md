@@ -10,3 +10,6 @@ Simply load up the website, press start, and answer the questions. Lose 5 second
 ![List of four questions is displayed and a timer](/assets/imgs/Screenshot2.png)
 ![End screen with a New High Score message and a display of the current leader](/assets/imgs/Screenshot3.png)
 
+### Troubles Along The Way
+The clock handling was quite difficult for me to figure out. I learned how to use setInterval and clearInterval in this project(Both of which took me far too long to discover). Scope on the clock became an issue when I decided to penalize the user by 5 seconds, so I had to do some refractoring and reimagination of the clock functions interactions with the incorrectAnswer function. Overall this code is far to bulky for what it is currently, so I will be returning shortly to refactor further. (specifically the question objs are huge. If i insert them into an array and iterate thru it, then I can get rid of a significant chunk of techincal debt)
+
