@@ -44,6 +44,13 @@ body {
     font-size: 2em;
 }
 
+.submit-button {
+    width: 15em;
+    height: 2em;
+    margin: 0.5em;
+    font-size: 1.5em;    
+}
+
 /* opening display */
 .opening-p {
     font-size: 2em;
@@ -51,6 +58,11 @@ body {
 
 .opening-h1 {
     font-size: 3em;
+}
+
+/* endScreen */
+.end-input {
+    font-size: 1.5em;
 }
 
 /* divs */

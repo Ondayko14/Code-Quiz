@@ -9,6 +9,7 @@ var countDown = parseInt(clock.textContent);
 
 //score
 var score = 0;
+var playerName = ""
 
 
 //Question variables
@@ -294,10 +295,6 @@ var questionFour = function(event) {
     console.log(score);
  };
 
- var endScreen = function(event) {
-    console.log("noice!");
- };
-
 //removes initial display
 var removeInitial = function() {
     var initialh1 = document.querySelector(".opening-h1");
@@ -343,6 +340,39 @@ var clockHandler = function() {
     headerSection.appendChild(clock);
 }
 
+//END SCREEN
+var endScreen = function(event) {
+    removeQuestion();
+    console.log("noice!");
+    //h1 title
+    var endTitle = document.createElement("h1");
+    endTitle.className = "opening-h1";
+    endTitle.textContent = "Congratualtions!";
+
+    //p your score is
+    var endDescription = document.createElement("p");
+    endDescription.className = "opening-p";
+    endDescription.textContent = "Your score is " + score + ".";
+    
+    //text input
+    var endInput = document.createElement("input");
+    endInput.setAttribute ("placeholder", "Enter Name Here!");
+    endInput.className = "end-input";
+
+    //submit button
+    var submitButton = document.createElement("button");
+    submitButton.className = "submit-button";
+    submitButton.textContent = "Submit";
+
+
+
+    //appends
+    wrapperEl.appendChild(endTitle);
+    wrapperEl.appendChild(endDescription);
+    wrapperEl.appendChild(endInput);
+    wrapperEl.appendChild(submitButton);
+
+ };
 initialDisplay();
 //events
 startButton.addEventListener("click", questionOne);
